@@ -1,6 +1,14 @@
+// Entregado
+
 function mostrar()
 {
-	//tomo la edad  
-	alert("ok");
+	var edadAdolescente;
 
+	edadAdolescente = parseInt(document.getElementById("txtIdEdad").value);
+
+	if(edadAdolescente < 12 || edadAdolescente > 17)  
+
+	alert("No es adolescente");
+
+	
 }//FIN DE LA FUNCIÓN
