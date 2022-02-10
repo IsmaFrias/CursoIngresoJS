@@ -7,25 +7,86 @@ D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es de
 E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos en informar del impuesto con el siguiente mensaje:
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
- */
+ Entregado*/
+ 
 function CalcularPrecio () 
 {
-    var cantidadLampartias;
+    var cantidadLamparitas;
+    var precioLampara
     var precioFinal;
+    var marca;
+    var iiBB;
+    var precioIibb;
 
-    cantidadLampartias = document.getElementById("txtIdCantidad").value;
-    cantidadLampartias = parseInt(cantidadLampartias)
+    marca = document.getElementById("Marca").value;
+    cantidadLamparitas = document.getElementById("txtIdCantidad").value;
+    cantidadLamparitas = parseInt(cantidadLamparitas)
 
-    if (cantidadLampartias < 6)
-        
+    precioLampara = cantidadLamparitas * 35
+
+    // Punto A  
+    if (cantidadLamparitas >= 6)
         {
-        precioFinal = cantidadLampartias * 35
+        precioFinal = precioLampara * 0.5;
         }
-        
-            else if (cantidadLampartias >= 6)
+
+    // Punto B
+    if (cantidadLamparitas == 5)
+    {
+        if (marca == "ArgentinaLuz")
             {
-            precioFinal = (cantidadLampartias * 35) * 50 / 100
+            precioFinal = precioLampara * 0.6;
             }
-        
-            document.getElementById("txtIdprecioDescuento").value = precioFinal;
+            else if (marca == "FelipeLamparas" || marca == "JeLuz" || marca == "HazIluminacion" || marca == "Osram")
+            {
+                precioFinal = precioLampara * 0.7;
+            }
+    }
+
+    // Punto C
+    if (cantidadLamparitas == 4)
+    {
+        if (marca == "ArgentinaLuz" || marca == "FelipeLamparas")
+            {
+            precioFinal = precioLampara * 0.75;
+            }
+                else if (marca == "JeLuz" || marca == "HazIluminacion" || marca == "Osram")
+                    {
+                    precioFinal = precioLampara * 0.8;
+                    }
+    }
+
+    // Punto D
+    if (cantidadLamparitas == 3)
+    {
+        if (marca == "ArgentinaLuz")
+        {
+            precioFinal = precioLampara * 0.85;
+        }
+        else if (marca == "FelipeLamparas")
+        {
+            precioFinal = precioLampara * 0.9;
+        }
+        else if (marca == "JeLuz" || marca == "HazIluminacion" || marca == "Osram")
+        {
+            precioFinal = precioLampara * 0.95;
+        }
+    }
+
+    document.getElementById("txtIdprecioDescuento").value = precioFinal.toFixed(2);
+
+    // Punto E
+    if (precioFinal > 120)
+    {
+        iiBB = precioLampara * 0.10
+        precioIibb = precioLampara + iiBB;
+        alert("De IIBB usted pago el 10%, siendo " + iiBB + " el impuesto que pagó");
+        document.getElementsById("txtIdprecioDescuento").value = precioIibb;
+    }
+
+
+    
+
+
+
 }
