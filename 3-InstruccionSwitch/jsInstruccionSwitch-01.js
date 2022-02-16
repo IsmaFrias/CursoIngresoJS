@@ -1,3 +1,5 @@
+// Entregado
+
 function mostrar()
 {
 	//tomo el mes
@@ -5,7 +7,7 @@ function mostrar()
 
 	switch (mes) {
 		case "Enero":
-		alert("Que comiences bien el año!!!.");
+		alert("Que comiences bien el año!!!");
 		break
 
 		case "Marzo":
