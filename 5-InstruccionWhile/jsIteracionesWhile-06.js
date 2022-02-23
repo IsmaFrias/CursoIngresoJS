@@ -1,3 +1,5 @@
+//Entregado
+
 function mostrar()
 {
 	var numero;

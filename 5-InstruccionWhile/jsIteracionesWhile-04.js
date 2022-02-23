@@ -9,7 +9,7 @@ function mostrar()
 
 	numeroIngresado = prompt("Ingrese un número entre 0 y 9.");
 
-	while(numeroIngresado > 9){
+	while(numeroIngresado < 0 || numeroIngresado > 9 || !numeroIngresado){
 
 		numeroIngresado = prompt("Error, ingrese un número entre 0 y 9")
 		contador++;
